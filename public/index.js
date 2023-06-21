@@ -7,6 +7,9 @@ $(document).ready(()=>{
   // Get the online users from the server
   socket.emit('get online users');
 
+  // BUTTON HANDLERS
+  
+  // Create User Button
   $('#create-user-btn').click((e)=>{
     e.preventDefault();
     if($('#username-input').val().length > 0){
@@ -17,6 +20,8 @@ $(document).ready(()=>{
       $('.main-container').css('display', 'flex');
     }
   });
+
+  // Send Message Button
 
   $('#send-chat-btn').click((e) => {
     e.preventDefault();
@@ -33,13 +38,26 @@ $(document).ready(()=>{
     }
   });
 
-  //socket listeners
+  // Add Channel Button
+  $('#new-channel-btn').click( () => {
+    let newChannel = $('#new-channel-input').val();
+  
+    if(newChannel.length > 0){
+      // Emit the new channel to the server
+      socket.emit('new channel', newChannel);
+      $('#new-channel-input').val("");
+    }
+  });
+
+  // SOCKET LISTENER
+
+  // New User Joins
   socket.on('new user', (username) => {
     console.log(`${username} has joined the chat`);
     $('.users-online').append(`<div class="user-online">${username}</div>`);
   })
 
-  //Output the new message
+  // Output the new message
   socket.on('new message', (data) => {
     $('.message-container').append(`
       <div class="message">
