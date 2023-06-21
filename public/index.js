@@ -6,6 +6,8 @@ $(document).ready(()=>{
   let currentUser;
   // Get the online users from the server
   socket.emit('get online users');
+  // Get the existing channels from the server
+  socket.emit('load channels');
   //Each user should be in the general channel by default.
   socket.emit('user changed channel', "General");
 
@@ -94,6 +96,15 @@ $(document).ready(()=>{
     $('.users-online').empty();
     for(username in onlineUsers){
       $('.users-online').append(`<p>${username}</p>`);
+    }
+  });
+
+  // Show the existing channels
+  socket.on('load channels', (channels) => {
+    for(channel in channels){
+      if (channel !== "General") {
+        $('.channels').append(`<div class="channel">${channel}</div>`);
+      }
     }
   });
 

@@ -29,6 +29,11 @@ module.exports = (io, socket, onlineUsers, channels) => {
       io.emit('user has left', onlineUsers);
     });
 
+    socket.on('load channels', () => {
+      //Load the existing channels
+      socket.emit('load channels', channels);
+    })
+
     socket.on('new channel', (newChannel) => {
       //Save the new channel to our channels object. The array will hold the messages.
       channels[newChannel] = [];
