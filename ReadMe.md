@@ -2,6 +2,8 @@
 
 A very cool dockerized project that gives AOL Instant Messenger vibes. 
 
+![Uptime Robot status](https://img.shields.io/uptimerobot/status/m795425313-70005eb4d8fd5e52424161a2)
+
 ## Command Reference
 
 ### To use Docker Compose
