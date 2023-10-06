@@ -30,4 +30,4 @@ docker-compose -f docker-compose.dev.yml up -d
 
 ### 3. Access via Browser
 
-http://localhost:3000/
+http://localhost:3001/
