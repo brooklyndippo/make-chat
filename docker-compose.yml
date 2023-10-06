@@ -1,0 +1,22 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+    environment:
+      - NODE_ENV=production # Set NODE_ENV to 'production' in the container
+    env_file:
+      - .env # Use the .env file for environment variables
+    ports:
+      - '3000:3000'
+    depends_on:
+      - database
+
+  database:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: captain42
+    ports:
+      - '27017:27017'
+
