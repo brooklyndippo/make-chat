@@ -22,10 +22,10 @@ docker-compose up --build
 docker build -t make-chat .
 ```
 
-### 2. Run the Container
+### 2. Run the Container Locally
 
 ```bash
-docker run -p 3000:3000 make-chat
+docker-compose -f docker-compose.dev.yml up -d
 ```
 
 ### 3. Access via Browser

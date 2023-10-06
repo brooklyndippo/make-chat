@@ -4,9 +4,9 @@ services:
     build:
       context: .
     environment:
-      - NODE_ENV=production # Set NODE_ENV to 'production' in the container
+      - NODE_ENV=production 
     env_file:
-      - .env # Use the .env file for environment variables
+      - .env 
     ports:
       - '3000:3000'
     depends_on:

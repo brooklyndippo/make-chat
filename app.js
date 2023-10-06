@@ -10,8 +10,6 @@ if (!process.env.DEV_DB_URI || !process.env.DB_URI) {
 
 // Check the NODE_ENV environment variable to determine the environment
 const isProduction = process.env.NODE_ENV === 'production';
-console.log('isProduction:')
-console.log(isProduction)
 
 // Define connection strings for different environments
 const devDbUri = process.env.DEV_DB_URI;
