@@ -22,6 +22,7 @@ const connectionString = isProduction ? dbUri : devDbUri;
 mongoose.connect(connectionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  userMongoClient: true,
 });
 
 const db = mongoose.connection;

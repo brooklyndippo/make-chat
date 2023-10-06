@@ -5,6 +5,7 @@ services:
       context: .
     environment:
       - NODE_ENV=production 
+      - DB_URI=mongodb://srv-captain--make-chat-2/mydatabase?authSource=admin
     env_file:
       - .env 
     ports:
@@ -17,6 +18,7 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: captain42
+      DB_URI: mongodb://srv-captain--make-chat-2/mydatabase?authSource=admin
     ports:
       - '27017:27017'
 
